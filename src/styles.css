@@ -1,1 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+@import '@fortawesome/fontawesome-free/css/all.css';
+@import 'bootstrap/dist/css/bootstrap.css';
+
+/* accrocco per la gestione dei colori per famiglia di appartenenza */
+body {
+  background-color: #ffeedd;
+}
+
+.Targaryen {
+  background-color: #cc3f0c;
+}
+
+.Tarly {
+  background-color: #9a6d38;
+}
+
+.Stark {
+  background-color: #33673b;
+}
+
+.Baratheon {
+  background-color: #d8cbc7;
+}
+
+.Lannister.Lanister {
+  background-color: #f4b860;
+}
+
+.Greyjoy {
+  background-color: #c83e4d;
+}
+
+.Clegane {
+  background-color: #26c485;
+}
+
+.Baelish {
+  background-color: #a3e7fc;
+}
+
+a {
+  color: white;
+}
+
+.card-body {
+  background-color: #edcf8e;
+}
