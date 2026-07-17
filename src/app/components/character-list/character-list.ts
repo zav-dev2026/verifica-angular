@@ -3,6 +3,12 @@ import { CharacterService } from '../../services/character-service';
 import { CharacterDTO } from '../../models/CharacterDTO';
 import { Character } from '../character/character';
 
+/**
+ * Una volta ricevuto la lista dei personaggi dall'api
+ * nel template ciclo, e passo al componente character
+ * uno dei personaggi, ed è il componente figlio che
+ * ne gestisce il suo template (immagine + nome con link a dettaglio)
+ */
 @Component({
   selector: 'app-character-list',
   imports: [Character],
@@ -18,10 +24,15 @@ import { Character } from '../character/character';
   styles: '',
 })
 export class CharacterList implements OnInit {
+  /** Lista di personaggi */
   public characterList: CharacterDTO[] = [];
 
+  /** inietto il servizio */
   constructor(private characterService: CharacterService) {}
 
+  /** effettuo la chiamata API durante l'inizializzione
+   *  del componente in un blocco try catch
+   */
   async ngOnInit(): Promise<void> {
     try {
       const result = await this.characterService.getAllCharacters();

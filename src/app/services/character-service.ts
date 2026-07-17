@@ -15,7 +15,7 @@ export class CharacterService {
     return firstValueFrom(this.http.get<CharacterDTO[]>(`${this.baseUrl}`));
   }
 
-  getCharacterById(id: number): Promise<CharacterDTO> {
+  getCharacterById(id: string): Promise<CharacterDTO> {
     return firstValueFrom(this.http.get<CharacterDTO>(`${this.baseUrl}/${id}`));
   }
 }

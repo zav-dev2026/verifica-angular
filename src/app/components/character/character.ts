@@ -2,6 +2,13 @@ import { Component, Input } from '@angular/core';
 import { CharacterDTO } from '../../models/CharacterDTO';
 import { RouterLink } from '@angular/router';
 
+/**
+ * Nel template, ci sono diversi esempi di interpolazione {{}},
+ * posso accedere tranquillamente alle proprietà
+ * dell'oggetto character di tipo CharacterDTO
+ * perchè prima ho dichiarato il modello dati
+ */
+
 @Component({
   selector: 'app-character',
   imports: [RouterLink],
@@ -17,8 +24,11 @@ import { RouterLink } from '@angular/router';
       </div>
     </div>
   }`,
-  styleUrl: './character.css',
+  styles: '',
 })
 export class Character {
+  /** variabile non valorizzata dal componente stesso.
+   * Ma ricevuta da un componente padre tramite property binding
+   */
   @Input() character: CharacterDTO | null = null;
 }

@@ -3,6 +3,7 @@ import { CharacterService } from '../../services/character-service';
 import { ActivatedRoute } from '@angular/router';
 import { CharacterDTO } from '../../models/CharacterDTO';
 
+/** altri esempi di interpolazione nel template */
 @Component({
   selector: 'app-character-details',
   imports: [],
@@ -23,26 +24,31 @@ import { CharacterDTO } from '../../models/CharacterDTO';
   styles: '',
 })
 export class CharacterDetails implements OnInit {
+  /**
+   * proprietà inizializzate a null, perchè poi
+   * valorizzate nella onInit
+   */
   characterId: string | null = null;
   character: CharacterDTO | null = null;
 
+  /**
+   * Iniezione di servizio, e di componente per estrarre i valori
+   * della querystring
+   */
   constructor(
     private characterService: CharacterService,
     private activatedRoute: ActivatedRoute,
   ) {}
 
+  /**
+   * Chiamo la getById per valorizzare this.character
+   */
   async ngOnInit(): Promise<void> {
     this.characterId = this.activatedRoute.snapshot.paramMap.get('id');
 
     if (this.characterId) {
-      /**
-       *  Ricevo l'id in stringa dalla querystring nell'url, casto in number
-       *  per effettuare la chiamata al service
-       */
-      const characterIdToNumber = parseInt(this.characterId);
-
       try {
-        const result = await this.characterService.getCharacterById(characterIdToNumber);
+        const result = await this.characterService.getCharacterById(this.characterId);
         this.character = result;
       } catch {
         throw 'Errore nel recupero del personaggio';
