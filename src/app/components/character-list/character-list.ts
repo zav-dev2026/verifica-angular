@@ -35,6 +35,11 @@ export class CharacterList implements OnInit {
    */
   async ngOnInit(): Promise<void> {
     try {
+      /**
+       * Risolvo la promise tornata dal servizio e ne estraggo il risultato
+       * con await e lo assegno alla proprietà della classe, oppure con la sintassi
+       * .then((result) => this.characterList = result)
+       */
       const result = await this.characterService.getAllCharacters();
       this.characterList = result;
     } catch {
