@@ -56,7 +56,7 @@ Con queste chiamate troviamo inanzitutto l'endpoint, dove c'è scritto Curl.
 'https://thronesapi.com/api/v2/Characters'
 Questo sarà chiamato dal nostro servizio.
 
-Questa è la risposta della GET (isolo un recordo e ne mostro il json)
+Questa è la risposta della GET (isolo un record e ne mostro il json)
 
 ```json
 {
@@ -139,7 +139,9 @@ del singolo personaggio)
 Come passare delle informazioni da un componente genitore al componente figlio?
 con @Input
 
-Si dichiara una proprietà che verrà ricevuta come input nel componente figlio
+Si dichiara una proprietà che verrà ricevuta come input nel componente figlio.
+(questa è una proprietà che si può valorizzare nel template di altri componenti,
+chiamando il selettore quindi <app-character [nome della proprietà di app character]="" >)
 
 character component:
 
@@ -152,10 +154,10 @@ export class Character {
 e dal componente genitore si passa tramite il property binding, quindi fra
 parentesi quadre il nome della proprietà [character]="proprietà del genitore"
 
-in questo caso viene passata nel template, in un ciclo @for che cicla l'array di
+in questo caso viene passata nel template padre, in un ciclo @for che cicla l'array di
 CharacterDTO, di conseguenza passa il singolo modello dati character al componente character.
 
-character component template:
+character-list component template:
 
 ```html
 @for (character of characterList; track character.id) {
