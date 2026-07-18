@@ -11,18 +11,18 @@ export class CharacterService {
 
   constructor(private http: HttpClient) {}
 
+  /**
+   * il metodo get di HttpClient ritorna un observable.
+   * trasformiamo l'observable in promise con firstValueFrom
+   */
   getAllCharacters(): Promise<CharacterDTO[]> {
-    /**
-     * il metodo get di HttpClient ritorna un observable.
-     * trasformiamo l'observable in promise con firstValueFrom
-     */
     return firstValueFrom(this.http.get<CharacterDTO[]>(`${this.baseUrl}`));
   }
 
+  /**
+   * trasformiamo l'observable in promise
+   */
   getCharacterById(id: string): Promise<CharacterDTO> {
-    /**
-     * trasformiamo l'observable in promise
-     */
     return firstValueFrom(this.http.get<CharacterDTO>(`${this.baseUrl}/${id}`));
   }
 }
